@@ -1,0 +1,112 @@
+#!/bin/bash
+# Job name
+#PBS -N Matrix
+# Output files
+#PBS -o ./matrix.o
+#PBS -e ./matrix.e
+# Queue name
+#PBS -q short_cpuQ
+# Set the maximum wall time
+#PBS -l walltime=6:00:00
+# Number of nodes, cpus, and amount of memory
+#PBS -l select=1:ncpus=96:mem=20mb
+
+# Modules for C
+module load gcc91
+module load mpich-3.2.1--gcc-9.1.0
+# Dematrixe gcc and g++ to use the version 9.1.0
+g++() {
+    g++-9.1.0 "$@"
+}
+
+g++ --version
+
+# Select the working directory
+cd /home/david.brugnara/Matrix2/
+
+
+#RUN 
+mpicxx main.cpp mpi.cpp parallel.cpp sequential.cpp -fopenmp -o matrix
+
+export OMP_NUM_THREADS=1; mpirun -np 1 ./matrix 4
+export OMP_NUM_THREADS=2; mpirun -np 2 ./matrix 4
+export OMP_NUM_THREADS=4; mpirun -np 4 ./matrix 4
+export OMP_NUM_THREADS=8; mpirun -np 8 ./matrix 4
+export OMP_NUM_THREADS=16; mpirun -np 16 ./matrix 4
+export OMP_NUM_THREADS=32; mpirun -np 32 ./matrix 4
+export OMP_NUM_THREADS=64; mpirun -np 64 ./matrix 4
+export OMP_NUM_THREADS=96; mpirun -np 96 ./matrix 4
+
+export OMP_NUM_THREADS=1; mpirun -np 1 ./matrix 5
+export OMP_NUM_THREADS=2; mpirun -np 2 ./matrix 5
+export OMP_NUM_THREADS=4; mpirun -np 4 ./matrix 5
+export OMP_NUM_THREADS=8; mpirun -np 8 ./matrix 5
+export OMP_NUM_THREADS=16; mpirun -np 16 ./matrix 5
+export OMP_NUM_THREADS=32; mpirun -np 32 ./matrix 5
+export OMP_NUM_THREADS=64; mpirun -np 64 ./matrix 5
+export OMP_NUM_THREADS=96; mpirun -np 96 ./matrix 5
+
+export OMP_NUM_THREADS=1; mpirun -np 1 ./matrix 6
+export OMP_NUM_THREADS=2; mpirun -np 2 ./matrix 6
+export OMP_NUM_THREADS=4; mpirun -np 4 ./matrix 6
+export OMP_NUM_THREADS=8; mpirun -np 8 ./matrix 6
+export OMP_NUM_THREADS=16; mpirun -np 16 ./matrix 6
+export OMP_NUM_THREADS=32; mpirun -np 32 ./matrix 6
+export OMP_NUM_THREADS=64; mpirun -np 64 ./matrix 6
+export OMP_NUM_THREADS=96; mpirun -np 96 ./matrix 6
+
+export OMP_NUM_THREADS=1; mpirun -np 1 ./matrix 7
+export OMP_NUM_THREADS=2; mpirun -np 2 ./matrix 7
+export OMP_NUM_THREADS=4; mpirun -np 4 ./matrix 7
+export OMP_NUM_THREADS=8; mpirun -np 8 ./matrix 7
+export OMP_NUM_THREADS=16; mpirun -np 16 ./matrix 7
+export OMP_NUM_THREADS=32; mpirun -np 32 ./matrix 7
+export OMP_NUM_THREADS=64; mpirun -np 64 ./matrix 7
+export OMP_NUM_THREADS=96; mpirun -np 96 ./matrix 7
+
+export OMP_NUM_THREADS=1; mpirun -np 1 ./matrix 8
+export OMP_NUM_THREADS=2; mpirun -np 2 ./matrix 8
+export OMP_NUM_THREADS=4; mpirun -np 4 ./matrix 8
+export OMP_NUM_THREADS=8; mpirun -np 8 ./matrix 8
+export OMP_NUM_THREADS=16; mpirun -np 16 ./matrix 8
+export OMP_NUM_THREADS=32; mpirun -np 32 ./matrix 8
+export OMP_NUM_THREADS=64; mpirun -np 64 ./matrix 8
+export OMP_NUM_THREADS=96; mpirun -np 96 ./matrix 8
+
+export OMP_NUM_THREADS=1; mpirun -np 1 ./matrix 9
+export OMP_NUM_THREADS=2; mpirun -np 2 ./matrix 9
+export OMP_NUM_THREADS=4; mpirun -np 4 ./matrix 9
+export OMP_NUM_THREADS=8; mpirun -np 8 ./matrix 9
+export OMP_NUM_THREADS=16; mpirun -np 16 ./matrix 9
+export OMP_NUM_THREADS=32; mpirun -np 32 ./matrix 9
+export OMP_NUM_THREADS=64; mpirun -np 64 ./matrix 9
+export OMP_NUM_THREADS=96; mpirun -np 96 ./matrix 9
+
+export OMP_NUM_THREADS=1; mpirun -np 1 ./matrix 10
+export OMP_NUM_THREADS=2; mpirun -np 2 ./matrix 10
+export OMP_NUM_THREADS=4; mpirun -np 4 ./matrix 10
+export OMP_NUM_THREADS=8; mpirun -np 8 ./matrix 10
+export OMP_NUM_THREADS=16; mpirun -np 16 ./matrix 10
+export OMP_NUM_THREADS=32; mpirun -np 32 ./matrix 10
+export OMP_NUM_THREADS=64; mpirun -np 64 ./matrix 10
+export OMP_NUM_THREADS=96; mpirun -np 96 ./matrix 10
+
+export OMP_NUM_THREADS=1; mpirun -np 1 ./matrix 11
+export OMP_NUM_THREADS=2; mpirun -np 2 ./matrix 11
+export OMP_NUM_THREADS=4; mpirun -np 4 ./matrix 11
+export OMP_NUM_THREADS=8; mpirun -np 8 ./matrix 11
+export OMP_NUM_THREADS=16; mpirun -np 16 ./matrix 11
+export OMP_NUM_THREADS=32; mpirun -np 32 ./matrix 11
+export OMP_NUM_THREADS=64; mpirun -np 64 ./matrix 11
+export OMP_NUM_THREADS=96; mpirun -np 96 ./matrix 11
+
+export OMP_NUM_THREADS=1; mpirun -np 1 ./matrix 12
+export OMP_NUM_THREADS=2; mpirun -np 2 ./matrix 12
+export OMP_NUM_THREADS=4; mpirun -np 4 ./matrix 12
+export OMP_NUM_THREADS=8; mpirun -np 8 ./matrix 12
+export OMP_NUM_THREADS=16; mpirun -np 16 ./matrix 12
+export OMP_NUM_THREADS=32; mpirun -np 32 ./matrix 12
+export OMP_NUM_THREADS=64; mpirun -np 64 ./matrix 12
+export OMP_NUM_THREADS=96; mpirun -np 96 ./matrix 12
+
+lscpu
